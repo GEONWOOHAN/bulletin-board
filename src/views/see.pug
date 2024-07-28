@@ -1,0 +1,17 @@
+extends base
+
+block content
+    div
+        div Title : #{article.title}
+        div Date : #{article.date}
+        div Views : #{article.views}
+        div Content : #{article.content}
+        div.imgBox
+            each image in article.file.images
+                img(src="/" + image)
+            else
+                break
+        div
+            a(href=`${article.id}/edit`) Edit
+            br
+            a(href=`${article.id}/delete`) Delete

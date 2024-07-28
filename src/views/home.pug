@@ -1,0 +1,15 @@
+extends base
+include mixins/article
+
+block content
+    div
+        a(href="/article/upload") Upload
+    div
+        each article in articles
+            +article(article)
+        else
+            break
+    footer
+        form(method="GET", action="/search")
+            input(type="text", name="keyword")
+            input(type="submit", value="Search")
